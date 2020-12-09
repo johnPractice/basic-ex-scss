@@ -1,0 +1,70 @@
+$color-red:#2222;
+nav {
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    li {
+        display: inline-block;
+    }
+    a {
+        display: block;
+        padding: 6px 12px;
+        text-decoration: none;
+    }
+}
+
+body {
+    color: $color-red;
+}
+
+// Extend/Inheritance
+%message {
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    border: 1px solid black;
+    padding: 20px;
+    margin: 20px;
+}
+
+.success {
+    @extend %message;
+    background-color: green;
+}
+
+.warning {
+    @extend %message;
+    background-color: orange;
+}
+
+.error {
+    @extend %message;
+    background-color: red;
+}
+
+@mixin transform($property) {
+    -webkit-transform: $property;
+    -ms-transform: $property;
+    transform: $property;
+}
+
+.box {
+    @include transform(rotate(30deg));
+}
+
+// Operators
+.container {
+    width: 100%;
+}
+
+article[role="main"] {
+    float: left;
+    width: 600px / 960px * 100%;
+}
+
+aside[role="complementary"] {
+    float: right;
+    width: 300px / 960px * 100%;
+}
